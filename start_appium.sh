@@ -17,6 +17,7 @@ if pgrep -f 'appium server -p 4723' >/dev/null 2>&1; then
   exit 0
 fi
 
+mkdir -p "$ROOT_DIR/Output"
 nohup appium server -p 4723 --address 127.0.0.1 --base-path /wd/hub >"$ROOT_DIR/Output/appium.log" 2>&1 &
 APP_PID=$!
 echo "Started Appium with PID $APP_PID"
