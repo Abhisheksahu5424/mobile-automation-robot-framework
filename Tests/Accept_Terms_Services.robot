@@ -5,18 +5,13 @@ Test Teardown     Run Keyword If Test Failed    Run Keyword And Ignore Error    
 *** Variables ***
 ${APP_PACKAGE}    com.aratai.chat
 ${APP_ACTIVITY}   com.arattai.home.presentation.ui.ExternalEntryPointActivity   
-${APP_URL}       http://localhost:4723
-${Automation_Name}    UiAutomator2
-${Device_Name}    emulator-5554
-${New_Command_Timeout}    60
-${Platform_Name}    Android
 # ${Agree_Button}    xpath=//android.widget.Button[@text="Agree and continue"]
 ${Agree_Button}    xpath=//android.widget.TextView[@text="Agree and continue"]
 
 
 *** Test Cases ***
 Accept Terms and Conditions
-    [Setup]    Open Application    ${APP_URL}    platformName=${Platform_Name}    deviceName=${Device_Name}    ${APP_PACKAGE}     ${APP_ACTIVITY}    automationName=${Automation_Name}    newCommandTimeout=${New_Command_Timeout}
+    [Setup]    Open Application    http://localhost:4723    platformName=Android    deviceName=emulator-5554    appPackage=com.aratai.chat    appActivity=com.arattai.home.presentation.ui.ExternalEntryPointActivity    automationName=UiAutomator2    newCommandTimeout=60
 
     # Wait for the onboarding screen text to load safely
     # Wait Until Element Is Visible    xpath=//*[@text='Multi-device']    timeout=15
